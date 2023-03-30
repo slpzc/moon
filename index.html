@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./public/styles/style.css">
+    <link rel="stylesheet" href="./public/styles/animate.css">
+    <link rel="icon" type="image/x-icon" href="./public/img/icon.png">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>MOON - разработка и продвижение сайтов</title>
+</head>
+<body id="over-app">
+<div id="app">
+    <div class="shape">
+        <img src="./public/img/vrashalka.png" class="zhizha">
+    </div>
+    <nav>
+        <div class="global-wrapper">
+            <div class="contact">
+                <a href="#">связь с нами</a>
+            </div>
+            <div class="links">
+                <a href="#">кейсы</a>
+                <a href="#">услуги</a>
+                <a href="#">оставить заявку</a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="fullpage hello">
+            <div class="global-wrapper">
+                <img src="./public/img/MOON.png" alt="logotype">
+                <div class="text-content">
+                    <h1><span class="wow fadeInLeft" data-wow-duration="0.7s" data-wow-delay="0s">Сайты.</span>
+                        <span class="wow fadeInLeft" data-wow-duration="0.7s" data-wow-delay="0.2s">Бренды.</span>
+                        <span class="wow fadeInLeft" data-wow-duration="0.7s" data-wow-delay="0.3s">Маркетинг.</span>
+                    </h1>
+                    <p class="wow fadeInUp" data-wow-delay="0.5s">Ваш бизнес займёт лидирующие решения</p>
+                </div>
+            </div>
+        </section>
+        <section class="fullpage services">
+            <div class="global-wrapper">
+                <div class="services-inner">
+                    <div class="services-inner_item wow fadeInLeft" data-wow-duration="0.7s"
+                         :data-wow-delay="`0.${key}s`" v-for="({name, description}, key) in services" :key="key">
+                        <b>{{ name }}</b>
+                        <p>{{ description }}</p>
+                    </div>
+                </div>
+            </div>
+            <h2 class="services-title wow fadeInLeft" data-wow-duration="1s">Наши услуги</h2>
+        </section>
+        <section class="fullpage cases">
+            <div class="global-wrapper">
+                <div class="cases-top-image">
+                    <div class="cases-top">
+                        <div class="cases-top_title wow fadeInLeft">
+                            <h2 class="title">Кейсы</h2>
+                            <p>Всего {{ cases.length }} кейсов</p>
+                        </div>
+                        <div class="cases-top_case wow fadeInLeft" data-wow-delay="0.5s">
+                            <transition name="slide-fade" mode="out-in">
+                                <b :key="cases.indexOf(cases[currentCase])">{{ cases[currentCase].title }}</b>
+                            </transition>
+                            <transition name="slide-fade" mode="out-in">
+                                <p :key="cases.indexOf(cases[currentCase])+1">{{ cases[currentCase].work }}</p>
+                            </transition>
+                        </div>
+                    </div>
+                    <transition mode="out-in">
+                        <img :key="cases.indexOf(cases[currentCase])+2" class="wow fadeInLeft"
+                             :src="cases[currentCase].image" alt="">
+                    </transition>
+                </div>
+                <div class="cases-navigation wow fadeIn">
+                    <button @click="currentCase--" :disabled="currentCase === 0"><img
+                            src="./public/img/navigationArrow.png" alt="navigation arrow">
+                    </button>
+                    <div>
+                        <transition mode="out-in" name="slide-fade">
+                            <span :key="currentCase+1" class="currentNumber">{{ currentCase + 1 }}</span>
+                        </transition>
+                        <span class="line"></span> <span class="of-number">5</span></div>
+                    <button @click="currentCase++" :disabled="currentCase === 4"><img
+                            src="./public/img/navigationArrow.png" alt="navigation arrow">
+                    </button>
+                </div>
+            </div>
+        </section>
+        <section class="fullpage reviews">
+            <div class="global-wrapper">
+                <h2 class="title wow fadeInLeft">Отзывы о нас</h2>
+                <div class="reviews-inner">
+                    <div class="card wow fadeInLeft" data-wow-delay=".5s">
+                        <b>ЖК «Академический»</b>
+                        <p>Нужна была надежная студия для разработки проекта систем коммуникаций на крупном спортивном
+                            комплексе. to the Moon ответственно подошли к проекту и качественно его реализовали. Все
+                            разработки велись тщательно, проект подробный, хорошая разработка и точная реализация</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="fullpage brief">
+            <div class="global-wrapper">
+                <h2 class="title">Бриф вашего проекта</h2>
+                <p class="brief-description">Акция дня: скидка на повторный заказ 30% действует ещё <span>{{ hours }} часов {{ minutes
+                    }} минут</span></p>
+                <div class="form-contacts">
+                    <div class="contacts">
+                        <b>Чекунов Алексей</b>
+                        <p>+7 953 006-30-82</p>
+                        <p>chekunovstudios@official-supp.ru</p>
+                    </div>
+                    <div class="form">
+                        <div class="inputs">
+                            <div class="input require" :class="{ active: brief.name.length > 0 || inputs.name}">
+                                <input type="text" v-model.trim="brief.name" @click="inputActivate('name')">
+                                <span>Имя</span>
+                            </div>
+                            <div class="input require" :class="{ active: brief.email.length > 0 || inputs.email}">
+                                <input type="text" v-model.trim="brief.email" @click="inputActivate('email')">
+                                <span>E-mail</span>
+                            </div>
+                            <div class="input" :class="{ active: brief.phone.length > 0 || inputs.phone}">
+                                <input type="text" v-model.trim="brief.phone" @click="inputActivate('phone')">
+                                <span>Телефон</span>
+                            </div>
+                            <div class="input require" :class="{ active: brief.project.length > 0 || inputs.project}">
+                                <input type="text" v-model.trim="brief.project" @click="inputActivate('project')">
+                                <span>Кратко о проекте</span>
+                            </div>
+                        </div>
+                        <div class="policy-button">
+                            <button class="policy-button_btn">Отправить</button>
+                        </div>
+                    </div>
+                </div>
+                <p class="from">Mother Russia <span></span> г. Екатеринбург (UTC+5), г. Москва (UTC+3) </p>
+            </div>
+        </section>
+    </main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="./public/js/main.js"></script>
+<script src="./public/js/wow.min.js"></script>
+<script>
+    new WOW().init();
+</script>
+</body>
+</html>

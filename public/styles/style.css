@@ -1,0 +1,599 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* important */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+    outline: 0;
+    font-family: inherit;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #101010;
+}
+
+body::-webkit-scrollbar {
+    width: 0;
+}
+
+.fullpage {
+    height: 100vh;
+    width: 100%;
+}
+
+.global-wrapper {
+    max-width: 1520px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.global-wrapper h2.title {
+    font-weight: 700;
+    font-size: 76px;
+    line-height: 92px;
+    color: #FFFFFF;
+}
+
+/* keyframes */
+@keyframes zhizhaCircle {
+    0% {
+        transform: translate3d(0px, 0px, 0px) rotate(0deg);
+    }
+    100% {
+        transform: translate3d(0px, 0px, 0px) rotate(360deg);
+    }
+}
+
+@keyframes bottomArrows {
+    0% {
+        bottom: 40px;
+    }
+    50% {
+        bottom: 50px;
+    }
+    100% {
+        bottom: 40px;
+    }
+}
+
+/* effects/shapes */
+.shape .zhizha {
+    z-index: 999;
+    pointer-events: none;
+    user-select: none;
+    position: fixed;
+    top: -100px;
+    left: -350px;
+    transform: translate3d(0px, 0px, 0px) rotate(0deg);
+    animation: zhizhaCircle 20s infinite ease;
+}
+
+/* nav */
+nav {
+    z-index: 999;
+    padding-top: 68px;
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+nav .global-wrapper {
+    justify-content: space-between;
+}
+
+nav a {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFFFFF;
+}
+
+nav .links {
+    display: flex;
+    align-items: center;
+    gap: 41px;
+}
+
+/* main */
+main .hello {
+    position: relative;
+}
+
+main .hello::before {
+    position: absolute;
+    content: "";
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-image: url("../img/downarrows.png");
+    width: 21px;
+    height: 24px;
+    animation: bottomArrows 2s infinite ease;
+}
+
+main .hello .global-wrapper {
+    padding-top: 251px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 284px;
+}
+
+main .hello .text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+main .hello .text-content h1 {
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+    font-size: 76px;
+    line-height: 92px;
+    color: #EDECED;
+}
+
+main .hello .text-content p {
+    max-width: 299px;
+    margin-top: 74px;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 31px;
+
+    color: #E49EB4;
+}
+
+/* services */
+.services .global-wrapper {
+    padding-top: 350px;
+
+}
+
+.services {
+    position: relative;
+}
+
+.services-title {
+    position: absolute;
+    width: 100%;
+    bottom: 55px;
+    left: 0;
+    font-size: 12vw;
+    font-weight: 700;
+    line-height: 167px;
+    color: #D93433;
+}
+
+.services-inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 100px;
+    grid-row-gap: 32px;
+}
+
+.services-inner_item b {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+    color: #D93433;
+    position: relative;
+}
+
+.services-inner_item b::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: -10px;
+    width: 10px;
+    height: 12px;
+    background-image: url("../img/Arrow.png");
+}
+
+.services-inner_item p {
+    padding-top: 7px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23px;
+    letter-spacing: 0.01em;
+    color: #FFFFFF;
+}
+
+.services-inner_item:last-child b {
+    color: #FFFFFF;
+}
+
+/* cases */
+.cases .global-wrapper {
+    padding-top: 200px;
+}
+
+.cases-top-image {
+    max-width: 1112px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.cases .cases-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cases-top_title p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+.cases-top_case b {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+    color: #FFFFFF;
+    position: relative;
+    padding-right: 20px;
+}
+
+.cases-top_case p {
+    padding-top: 6px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #E49EB4;
+}
+
+.cases-navigation {
+    display: flex;
+    flex-direction: column;
+}
+
+.cases-navigation button:last-child {
+    transform: rotate(180deg);
+}
+
+.cases button {
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+
+.cases-top-image img {
+    padding-top: 37px;
+    height: 556px;
+    object-fit: cover;
+}
+
+.cases .global-wrapper {
+    align-items: center;
+    gap: 100px;
+}
+
+.cases-navigation div {
+    font-weight: 700;
+    font-size: 76px;
+    line-height: 77px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    transform: rotate(2deg);
+    font-style: italic !important;
+}
+
+.cases-navigation div .currentNumber {
+    position: relative;
+    top: 20px;
+}
+
+.cases-navigation div span.line {
+    position: relative;
+    left: 1px;
+    width: 3px;
+    transform: rotate(68deg);
+    height: 80px;
+    background-color: #D93433;
+}
+
+.cases-navigation div .of-number {
+    position: relative;
+    bottom: 20px;
+    opacity: .5
+}
+
+/* reviews */
+.reviews .global-wrapper {
+    padding-top: 200px;
+    flex-direction: column;
+}
+
+.reviews-inner {
+    display: flex;
+}
+
+.reviews-inner .card {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    max-width: 400px;
+}
+
+.reviews-inner .card b {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    color: #EDECED;
+}
+
+.reviews-inner .card p {
+    padding-top: 20px;
+    font-weight: 500;
+    font-size: 20px;
+    color: #EDECED;
+    line-height: 128%;
+    letter-spacing: 0.03em;
+}
+
+/* brief */
+.brief .global-wrapper {
+    padding-top: 300px;
+    flex-direction: column;
+}
+
+.brief h2 {
+    position: relative;
+    color: #D93433 !important;
+}
+
+.brief-description {
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 19px;
+    color: #FFFFFF;
+    padding-top: 8px;
+}
+
+.form-contacts {
+    padding-top: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-contacts .contacts b {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+    color: #FFFFFF;
+}
+
+.form-contacts .contacts p {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    padding-top: 6px;
+    color: #FFFFFF;
+}
+
+.form-contacts .form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.form .inputs {
+    max-width: 686px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.inputs input {
+    border-bottom: 1px solid #666;
+    background-color: transparent;
+    color: #edeced;
+    font-weight: 500;
+    padding: 10px 16px;
+    width: 100%
+}
+
+.inputs .input {
+    position: relative;
+    max-width: 330px;
+    width: 100%;
+}
+
+.inputs .input span {
+    position: absolute;
+    bottom: 10px;
+    left: 16px;
+    transition: all .2s ease;
+    pointer-events: none;
+    color: #edeced;
+}
+
+.inputs .require span::before {
+    position: absolute;
+    content: "*";
+    color: #D93433;
+    top: -4px;
+    left: -10px;
+}
+
+.form .policy-button {
+    padding-top: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.form .policy-button button {
+    background-color: transparent;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 14px 50px;
+    transition: all .2s ease;
+    cursor: pointer;
+}
+
+.form .policy-button button:hover {
+    background-color: #D93433;
+    color: white;
+    border: 2px solid #D93433;
+}
+
+.from {
+    font-size: 16px;
+    line-height: 22px;
+    color: #EDECED;
+}
+
+.inputs .active span {
+    font-size: 12px;
+    bottom: 30px;
+    color: #D93433;
+}
+
+/* vue-animations */
+.slide-fade-enter-active {
+    transition: all .2s ease;
+}
+
+.slide-fade-leave-active {
+    transition: all .2s ease;
+}
+
+.slide-fade-enter, .slide-fade-leave-to
+    /* .slide-fade-leave-active for <2.1.8 */
+{
+    transform: translateX(-10px);
+    opacity: 0;
+}
+
+/* media screen, adaptive */
+@media screen and (max-width: 990px) {
+    .hello img {
+        display: none;
+    }
+
+    .hello .global-wrapper, .form .inputs {
+        justify-content: center !important;
+    }
+
+    .brief .form-contacts {
+        flex-direction: column;
+    }
+
+    .brief .form-contacts .form {
+        padding-top: 30px;
+        align-items: center;
+    }
+
+    .form .policy-button {
+        padding-top: 40px;
+    }
+
+    .from {
+        padding-top: 80px;
+    }
+
+    .from, .brief .title, .brief .brief-description, .form-contacts .contacts {
+        text-align: center;
+    }
+
+    .services .global-wrapper {
+        padding-top: 200px;
+    }
+
+    .services-inner {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    .services-title {
+        bottom: 10px;
+    }
+
+    .cases-top-image img {
+        height: 300px;
+    }
+
+    .brief .global-wrapper {
+        padding-top: 200px;
+    }
+}
+
+@media screen and (max-width: 816px) {
+    .cases .cases-top {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cases-top_case {
+        padding-top: 30px;
+    }
+}
+
+@media screen and (max-width: 696px) {
+    .services-title {
+        bottom: 0px;
+    }
+
+    .global-wrapper h2.title {
+        font-size: 30px;
+    }
+
+    .brief .global-wrapper {
+        padding-top: 130px;
+    }
+
+    nav a {
+        font-size: 20px;
+    }
+
+    .services-inner {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 1px;
+        grid-row-gap: 10px;
+    }
+
+    .services h2 {
+        top: 50px;
+        font-size: 30px;
+    }
+
+    .services-inner_item b {
+        font-size: 24px;
+    }
+
+}
+
+@media screen and (max-width: 554px) {
+    nav a {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 462px) {
+    nav {
+        display: none;
+    }
+}
